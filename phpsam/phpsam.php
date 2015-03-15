@@ -9,6 +9,7 @@ class phpsam {
     public static $controller_name='';
     public static $action_name='';
     public static $theme='';
+    public static $theme_url='';
     
     static function run($config=null) {
         $base_url="http://".$_SERVER['HTTP_HOST'].dirname($_SERVER['SCRIPT_NAME']).'/';
@@ -19,8 +20,11 @@ class phpsam {
         }
         phpsam::$config=$config;
         if(isset($config->theme)) {
-            phpsam::$theme=$config->theme;
+            $theme=$config->theme;
         }
+        else $theme='v1';
+        phpsam::$theme=$theme;
+        phpsam::$theme_url=phpsam::$base_url.'theme/'.$theme.'/';
         $route=new \phpsam\route\route($config,$_SERVER);
     }
     
