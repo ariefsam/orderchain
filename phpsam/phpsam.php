@@ -36,6 +36,11 @@ class phpsam {
         }
     }
     
+    static function redirect($controller,$action,$params=null) {
+        header("Location:" . phpsam::$base_url.$controller.'/'.$action.'/'.$params);
+        die();
+    }
+    
 }
 
 

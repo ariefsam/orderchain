@@ -57,4 +57,8 @@ class controller {
             }
         }
     }
+    
+    function url($url='') {
+        return \phpsam::$base_url . $url;
+    }
 }
