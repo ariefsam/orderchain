@@ -36,7 +36,7 @@ class controller {
             }
             $_reflection=new \ReflectionClass($this);
             //Get Content Page
-            $_page=\phpsam::$base_directory.'/theme/' . \phpsam::$theme.'/'.  $_reflection->getShortName().'/'.$_view_name.'.php';
+            $_page=\phpsam::$base_directory.'/theme/' . \phpsam::$theme.'/views/'.  $_reflection->getShortName().'/'.$_view_name.'.php';
             
             if(is_file($_page)) {
                 ob_start();

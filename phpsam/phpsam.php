@@ -10,6 +10,7 @@ class phpsam {
     public static $action_name='';
     public static $theme='';
     public static $theme_url='';
+    public static $medoo=null;
     
     static function run($config=null) {
         $base_url="http://".$_SERVER['HTTP_HOST'].dirname($_SERVER['SCRIPT_NAME']).'/';
