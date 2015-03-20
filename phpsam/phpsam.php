@@ -1,6 +1,6 @@
 <?php
 spl_autoload_register('phpsam::autoload_class');
-
+require_once 'database/medoo.php';
 class phpsam {
     
     public static $config=null;
