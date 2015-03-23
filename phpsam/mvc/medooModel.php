@@ -2,7 +2,7 @@
 namespace phpsam\mvc;
 
 class medooModel extends model {
-    protected $medoo=null;
+    public $medoo=null;
     
     function __construct() {
         if(\phpsam::$medoo===null) {
@@ -13,9 +13,9 @@ class medooModel extends model {
             $this->medoo=  \phpsam::$medoo;
         }
     }
-    /*
+    
     public function __call($method, $args) {
-        //$this->medoo->$method($args[0]);
+        $this->medoo->$method($args[0]);
     }
-    */
+    
 }

@@ -3,9 +3,30 @@ namespace phpsam\mvc;
 class controller {
     
     public $layout='default';
+    public $input_post=array();
     
     function before_action() {
         
+    }
+    
+    function __construct() {
+        if(isset($_POST)) {
+            foreach($_POST as $key=>$value) {
+                if(!is_array($value)){
+                    $this->input_post[$key]=  filter_input(INPUT_POST, $key, FILTER_SANITIZE_STRING);
+                }
+            }
+        }
+    }
+    
+    function input_post($field=null) {
+        if($field==null) {
+            $return=$this->input_post;
+        }
+        else {
+            $return=@$this->input_post[$field];
+        }
+        return $return;
     }
     
     function action($action_name=null,$action_params=null) {
