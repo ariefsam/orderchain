@@ -9,10 +9,16 @@ $title='Order Baru';?>
             <!-- /.row -->
             <div class="row">
                 <div class="col-lg-12">
+                    <?php if($x=$this->get_flash('order_success')) {?>
+                    <div class="alert alert-success">
+                        <?php echo $x;?>
+                    </div>
+                    <?php }?>
                     <div class="panel panel-default">
                         <div class="panel-heading">
                             Form Order Baru
                         </div>
+                        
                         <div class="panel-body">
                             <div class="row">
                                 <div class="col-lg-12">
