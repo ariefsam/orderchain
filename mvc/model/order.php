@@ -15,4 +15,9 @@ class order extends \phpsam\mvc\medooModel {
         return [$new_order,$new_orderchain];
     }
     
+    function get_list_order($status='active') {
+        $x=$this->medoo->select('order','*',['status'=>'active']);
+        return $x;
+    }
+    
 }
