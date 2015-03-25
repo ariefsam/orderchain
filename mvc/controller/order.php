@@ -20,7 +20,7 @@ class order extends \phpsam\mvc\controller {
             //insert into table order
             $status=$order->new_order($data_insert);
             if($status[0]!=false && $status[1]!=false) {
-                $this->set_flash('order_success', "Order telah masuk database, <a href='".$this->url('order/detail')."'Order id: ");
+                $this->set_flash('order_success', "Order telah masuk database, <a href='".$this->url('order/detail/'.$status[0])."'>Order id: $status[0]</a>");
             }
         }
         
