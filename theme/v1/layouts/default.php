@@ -9,7 +9,7 @@
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>SB Admin 2 - Bootstrap Admin Theme</title>
+    <title><?php if(@$title) echo $title.' | ';?>Ikat Indonesia</title>
 
     <!-- Bootstrap Core CSS -->
     <link href="<?php echo phpsam::$theme_url;?>assets/bower_components/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
