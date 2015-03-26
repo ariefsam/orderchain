@@ -22,6 +22,7 @@
                                             <th>ID Order</th>
                                             <th>Nama Order</th>
                                             <th>Deskripsi</th>
+                                            <th>Posisi Department</th>
                                             <th></th>
                                         </tr>
                                     </thead>
@@ -34,6 +35,7 @@
                                             <td><?php echo $value['id']?></td>
                                             <td><?php echo $value['name']?></td>
                                             <td><?php echo $value['description']?></td>
+                                            <td><?php echo $value['department_name']?></td>
                                             <td class="center">
                                                 <a href="<?php echo $this->url('order/detail/' . $value['id']);?>" title="Detail" class="btn btn-success btn-circle">
                                                     <i class="fa fa-link"></i>

@@ -286,6 +286,9 @@
                             <a href="#"><i class="fa fa-edit fa-fw"></i> Order</a>
                             <ul class="nav nav-second-level">
                                 <li>
+                                    <a href="<?php echo $this->url('order/');?>">Daftar Order</a>
+                                </li>
+                                <li>
                                     <a href="<?php echo $this->url('order/new');?>">Order Baru</a>
                                 </li>
                             </ul>

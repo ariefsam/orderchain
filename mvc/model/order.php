@@ -16,7 +16,15 @@ class order extends \phpsam\mvc\medooModel {
     }
     
     function get_list_order($status='active') {
-        $x=$this->medoo->select('order','*',['status'=>'active']);
+        $x=$this->medoo->select('order',
+                ["[>]department" => ["last_department" => "id"]],
+                [
+                    'order.id',
+                    'order.name',
+                    'order.description',
+                    'department.name(department_name)'
+                ],
+                ['order.status'=>'active']);
         return $x;
     }
     
