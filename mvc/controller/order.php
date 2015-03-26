@@ -42,7 +42,13 @@ class order extends \phpsam\mvc\controller {
     }
     
     function action_detail() {
-        $this->render('detail');
+        $order = new \mvc\model\order();
+        $order_detail=$order->get_detail_order(1);
+        $view_data = [
+            'item'=>$order_detail,
+            'title'=>'Order Detail'
+        ];
+        $this->render('detail',$view_data);
     }
     
     

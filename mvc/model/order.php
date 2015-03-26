@@ -28,4 +28,19 @@ class order extends \phpsam\mvc\medooModel {
         return $x;
     }
     
+    function get_detail_order($id=0) {
+        $x=$this->medoo->select('order',
+                ["[>]department" => ["last_department" => "id"]],
+                [
+                    'order.id',
+                    'order.name',
+                    'order.description',
+                    'department.name(department_name)'
+                ],
+                ['order.id'=>$id]);
+        if(!$x) $x=array();
+        else $x=$x[0];
+        return $x;
+    }
+    
 }
