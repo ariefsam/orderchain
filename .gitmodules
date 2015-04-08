@@ -1,0 +1,3 @@
+[submodule "phpsam"]
+	path = phpsam
+	url = https://github.com/ariefsam/phpsam.git
