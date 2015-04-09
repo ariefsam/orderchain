@@ -42,13 +42,25 @@ class order extends \phpsam\mvc\controller {
     }
     
     function action_detail() {
+        $id= $this->params[2];
         $order = new \mvc\model\order();
-        $order_detail=$order->get_detail_order(1);
+        $order_detail=$order->get_detail_order($id);
+        $department=new \mvc\model\department();
+        $department_detail=$department->get($order_detail['last_department'], ['relevant_department_data'=>true]);
         $view_data = [
             'item'=>$order_detail,
+            'department'=>$department_detail,
             'title'=>'Order Detail'
         ];
         $this->render('detail',$view_data);
+    }
+    
+    function action_move() {
+        $id_order=$this->params[2];
+        $id_department=$this->params[3];
+        $order= new \mvc\model\order();
+        $order->move_order($id_order, $id_department);
+        $this->redirect('order', 'detail',$id_order);
     }
     
     

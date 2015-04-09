@@ -23,16 +23,28 @@ class department extends \phpsam\mvc\medooModel {
         return $data;
     }
     
-    function get($id) {
+    function get($id,$option=[]) {
         $data=$this->medoo->select('department','*',['id'=>$id]);
         if($data) {
             $custom=  json_decode($data[0]['custom_value'],true);
             if(isset($custom['relevant_department'])) {
                 $data[0]['relevant_department']=$custom['relevant_department'];
+                if(@$option['relevant_department_data']==true) {
+                    $tmp_rel=$this->medoo->select('department','*', ['id'=>$custom['relevant_department']]);
+                    if(@$tmp_rel) {
+                        foreach($tmp_rel as $k=>$v) {
+                            $data[0]['relevant_department_data'][$v['id']]=$v;
+                        }
+                    }
+                    else {
+                        $data[0]['relevant_department_data']=[];
+                    }
+                }
             }
             else {
                 $data[0]['relevant_department']=[];
             }
+            
             return $data[0];
         }
         else return [];
