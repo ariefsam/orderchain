@@ -56,7 +56,7 @@
             @$script.="<link href=\"{$themeurl}assets/bower_components/datatables-plugins/integration/bootstrap/3/dataTables.bootstrap.css\" rel=\"stylesheet\">"
             . "<link href=\"{$themeurl}assets/bower_components/datatables-responsive/css/dataTables.responsive.css\" rel=\"stylesheet\">"
             . "<!-- DataTables JavaScript -->"
-            . "<script src=\"{$themeurl}assets/bower_components/DataTables/media/js/jquery.dataTables.min.js\"></script>"
+            . "<script src=\"{$themeurl}assets/bower_components/datatables/media/js/jquery.dataTables.min.js\"></script>"
             . "<script src=\"{$themeurl}assets/bower_components/datatables-plugins/integration/bootstrap/3/dataTables.bootstrap.min.js\"></script>"
             . "<script>
     $(document).ready(function() {
