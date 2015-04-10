@@ -47,8 +47,10 @@ class order extends \phpsam\mvc\controller {
         $order_detail=$order->get_detail_order($id);
         $department=new \mvc\model\department();
         $department_detail=$department->get($order_detail['last_department'], ['relevant_department_data'=>true]);
+        $history=$order->get_history_department($id);
         $view_data = [
             'item'=>$order_detail,
+            'items'=>$history,
             'department'=>$department_detail,
             'title'=>'Order Detail'
         ];

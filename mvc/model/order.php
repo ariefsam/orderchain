@@ -53,8 +53,24 @@ class order extends \phpsam\mvc\medooModel {
                     'department.name(department_name)'
                 ],
                 ['order.id'=>$id]);
-        if(!$x) $x=array();
+        if(!$x) $x=[];
         else $x=$x[0];
+        return $x;
+    }
+    
+    function get_history_department($id) {
+        $x=$this->medoo->select(
+                'orderchain',
+                ["[>]department" => ["department_id" => "id"]],
+                [
+                    'orderchain.id',
+                    'orderchain.date',
+                    'orderchain.status',
+                    'department.name(department_name)'
+                ],
+                ['orderchain.order_id'=>$id]
+        );
+        if(!$x) $x=[];
         return $x;
     }
     
