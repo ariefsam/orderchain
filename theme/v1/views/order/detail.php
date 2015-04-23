@@ -14,12 +14,13 @@
             <div class="panel-body">
                 <p><?php echo nl2br($item['description']) ?></p>
                 <p>
+                    <h3>Pindahkan Order ke:</h3>
                     <?php
                     $i = 0;
                     $btn = ['primary', 'success', 'info', 'warning', 'danger', 'default'];
                     foreach ($department['relevant_department_data'] as $key => $value):
                         ?>
-                    <h3>Pindahkan Order ke:</h3>
+                    
                     <button type="button" onclick="move_to(<?= $key; ?>, '<?= $value['name']; ?>')" class="btn btn-<?php echo $btn[$i % 6]; ?>"><?= $value['name'] ?></button>
                     <?php $i++;
                 endforeach; ?>
